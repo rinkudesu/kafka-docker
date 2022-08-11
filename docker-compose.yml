@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  kafka-zookeeper:
+    image: ghcr.io/rinkudesu/kafka-docker:latest
+    #volumes:
+      #- /kafka/config/zookeeper.properties:./config/zookeeper.properties:ro
+    entrypoint: ["bin/zookeeper-server-start.sh", "config/zookeeper.properties"]
+  kafka-broker:
+    image: ghcr.io/rinkudesu/kafka-docker:latest
+    #volumes:
+      #- /kafka/config/server.properties:./config/server.properties:ro
+    ports:
+      - "127.0.0.1:9092:9092"
+    entrypoint: ["bin/kafka-server-start.sh", "config/server.properties"]
