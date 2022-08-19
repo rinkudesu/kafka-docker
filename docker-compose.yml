@@ -7,6 +7,7 @@ services:
       #- /kafka/config/zookeeper.properties:./config/zookeeper.properties:ro
     entrypoint: ["bin/zookeeper-server-start.sh", "config/zookeeper.properties"]
   kafka-broker:
+    depends_on: [kafka-zookeeper]
     image: ghcr.io/rinkudesu/kafka-docker:latest
     #volumes:
       #- /kafka/config/server.properties:./config/server.properties:ro
