@@ -21,5 +21,6 @@ WORKDIR /kafka
 COPY --from=staging /kafka/ .
 
 RUN sed -i 's/localhost:2181/kafka-zookeeper:2181/g' config/server.properties
+RUN echo "listeners=internal://kafka-broker:9090,external://:9092\nlistener.security.protocol.map=internal:PLAINTEXT,external:PLAINTEXT\nadvertised.listeners=internal://kafka-broker:9090,external://localhost:9092\ninter.broker.listener.name=internal" >> config/server.properties
 
 EXPOSE 2181 9092
