@@ -12,5 +12,5 @@ services:
     #volumes:
       #- /kafka/config/server.properties:./config/server.properties:ro
     ports:
-      - "127.0.0.1:9092:9092"
+      - "9092:9092"
     entrypoint: ["bin/kafka-server-start.sh", "config/server.properties"]
