@@ -1,3 +1,7 @@
+# DEPRECATED
+
+Rinkudesu will use [Bitnami image](https://hub.docker.com/r/bitnami/kafka/) instead, as it's less needless maintenance work on our side.
+
 # kafka-docker
 
 This is a dockerised version of [Apache Kafka](https://kafka.apache.org/) intended for use with Rinkudesu.
